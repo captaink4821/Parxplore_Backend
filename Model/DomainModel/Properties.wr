@@ -1,44 +1,37 @@
 <DomainModel xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:gr="http://www.webratio.com/2006/WebML/Graph">
-  <Class id="User" name="User" duration="persistent" gr:x="20" gr:y="150" gr:hideAttributes="false" attributeOrder="userOID userName password email token tokenExpirationDate secretKey" db:database="db1" db:table="user">
-    <Attribute name="oid" id="userOID" type="integer" key="true" db:column="oid"/>
-    <Attribute name="userName" id="userName" type="string" db:column="username"/>
-    <Attribute name="password" id="password" type="password" db:column="password"/>
-    <Attribute name="email" id="email" type="string" db:column="email"/>
-    <Attribute id="token" name="Token" type="string" db:column="token"/>
-    <Attribute id="tokenExpirationDate" name="Token Expiration Date" type="timestamp" db:column="token_expiration_date"/>
-    <Attribute id="secretKey" name="secretKey" type="string" db:column="secretkey"/>
+  <Class id="User" name="User" duration="persistent" gr:x="20" gr:y="150" gr:hideAttributes="false" attributeOrder="userOID userName password email token tokenExpirationDate secretKey User#att47">
+    <Attribute name="oid" id="userOID" type="integer" key="true"/>
+    <Attribute name="userName" id="userName" type="string" key="false"/>
+    <Attribute name="password" id="password" type="password" key="false"/>
+    <Attribute name="email" id="email" type="string" key="false"/>
+    <Attribute id="token" name="Token" type="string" key="false"/>
+    <Attribute id="tokenExpirationDate" name="Token Expiration Date" type="timestamp" key="false"/>
+    <Attribute id="secretKey" name="secretKey" type="string" key="false"/>
     <Comment xml:space="preserve">A user represents one mobile application user. In addition to the standard information such as username, password and email, a user is also characterized by a token. The token is a string that authorizes the usage of all services published by the backend application. The token is automatically set by the backend application at login. The token may have a limited duration, that's why a token expiration date can be set. The secret key is the encryption key used when transferring files between the mobile application and the backend.</Comment>
+    <Attribute id="User#att47" name="user_type_id" type="integer" derivationQuery="simpleImported::Self.as4#role7.cls2#att7"/>
   </Class>
-  <Class id="Role" name="Role" duration="persistent" gr:x="355" gr:y="200" gr:hideAttributes="false" attributeOrder="roleOID roleName" db:database="db1" db:table="role">
-    <Attribute name="oid" id="roleOID" type="integer" key="true" db:column="oid"/>
-    <Attribute name="roleName" id="roleName" type="string" db:column="rolename"/>
+  <Class id="Role" name="Role" duration="persistent" gr:x="10" gr:y="380" gr:hideAttributes="false" attributeOrder="roleOID roleName">
+    <Attribute name="oid" id="roleOID" type="integer" key="true"/>
+    <Attribute name="roleName" id="roleName" type="string"/>
     <Comment xml:space="preserve">A role represents an application role managed by the backend application. This class is automatically filled in by the backend application with all Roles elements modeled in the project.</Comment>
   </Class>
-  <Class id="Device" name="Device" duration="persistent" attributeOrder="deviceOid deviceId notificationDeviceId deviceModel devicePlatform devicePlatformVersion deviceBrowser" gr:x="35" gr:y="-60" db:database="db1" db:table="device">
-    <Attribute id="deviceOid" name="oid" type="integer" key="true" db:column="oid"/>
-    <Attribute id="deviceId" name="Device ID" type="string" db:column="device_id"/>
-    <Attribute id="notificationDeviceId" name="Notification Device ID" type="string" db:column="notification_device_id"/>
-    <Attribute id="deviceModel" name="Model" type="string" db:column="model"/>
-    <Attribute id="devicePlatform" name="Platform" type="string" db:column="platform"/>
-    <Attribute id="devicePlatformVersion" name="Platform Version" type="string" db:column="platform_version"/>
-    <Attribute id="deviceBrowser" name="Browser" type="string" db:column="browser"/>
+  <Class id="Device" name="Device" duration="persistent" attributeOrder="deviceOid deviceId notificationDeviceId deviceModel devicePlatform devicePlatformVersion deviceBrowser" gr:x="35" gr:y="-60">
+    <Attribute id="deviceOid" name="oid" type="integer" key="true"/>
+    <Attribute id="deviceId" name="Device ID" type="string"/>
+    <Attribute id="notificationDeviceId" name="Notification Device ID" type="string"/>
+    <Attribute id="deviceModel" name="Model" type="string"/>
+    <Attribute id="devicePlatform" name="Platform" type="string"/>
+    <Attribute id="devicePlatformVersion" name="Platform Version" type="string"/>
+    <Attribute id="deviceBrowser" name="Browser" type="string"/>
     <Comment xml:space="preserve">A device represents a mobile phone or a tablet on which there's an app that interacts with the backend application. A device is identified through the Device ID, which is automatically calculated from the backend application. Other information about the device: the Model (e.g. iPhone 6), the Platform (iOS/Android) and its version (e.g. 8.1.3), the installed Browser (e.g. Mozilla/5.0). Finally the Notification Device ID identifies the device for sending push notifications to the installed app; it must be sent by the mobile application at login.</Comment>
   </Class>
-  <Association id="User2Role_Role2User" name="User_Role" sourceClass="User" targetClass="Role" db:database="db1" db:table="user_role">
-    <AssociationRole1 id="User2Role" name="roles" maxCard="N">
-      <db:JoinColumn attribute="userOID" name="user_oid"/>
-    </AssociationRole1>
-    <AssociationRole2 id="Role2User" name="users" maxCard="N">
-      <db:JoinColumn attribute="roleOID" name="role_oid"/>
-    </AssociationRole2>
+  <Association id="User2Role_Role2User" name="User_Role" sourceClass="User" targetClass="Role">
+    <AssociationRole1 id="User2Role" name="roles" maxCard="N"/>
+    <AssociationRole2 id="Role2User" name="users" maxCard="N"/>
   </Association>
-  <Association id="User2Device_Device2User" name="User_Device" sourceClass="User" targetClass="Device" db:database="db1" db:table="device">
-    <AssociationRole1 id="User2Device" name="UserToDevice" maxCard="N">
-      <db:JoinColumn attribute="userOID" name="user_oid"/>
-    </AssociationRole1>
-    <AssociationRole2 id="Device2User" name="DeviceToUser" maxCard="1">
-      <db:JoinColumn attribute="deviceOid" name="oid"/>
-    </AssociationRole2>
+  <Association id="User2Device_Device2User" name="User_Device" sourceClass="User" targetClass="Device">
+    <AssociationRole1 id="User2Device" name="UserToDevice" maxCard="N"/>
+    <AssociationRole2 id="Device2User" name="DeviceToUser" maxCard="1"/>
   </Association>
   <DataServices db:dataServicesDatabase="db1">
     <ServiceClass class="cls1">
@@ -54,23 +47,144 @@
     <UserServiceOperation type="register"/>
     <UserServiceOperation type="login"/>
   </UserServices>
-  <Class gr:x="390" gr:y="15" id="cls1" name="Animal" duration="persistent" attributeOrder="cls1#att1 cls1#att2 cls1#att3 cls1#att4 cls1#att5 cls1#att6" db:database="db1" db:table="animal">
-    <Attribute id="cls1#att1" key="true" name="oid" type="integer" db:column="oid"/>
-    <Attribute id="cls1#att4" name="Seen" type="boolean" db:column="seen"/>
-    <Attribute id="cls1#att3" name="Species" type="string" db:column="species"/>
-    <Attribute id="cls1#att2" name="Name" type="string" db:column="name"/>
-    <Attribute id="cls1#att5" name="createdAt" type="timestamp" specialBehavior="createTimestamp" db:column="createdat"/>
-    <Attribute id="cls1#att6" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" db:column="updatedat"/>
+  <Class gr:x="775" gr:y="-60" id="cls1" name="Animal" duration="persistent" attributeOrder="cls1#att1 cls1#att2 cls1#att3 cls1#att4 cls1#att5 cls1#att6 cls1#att29 cls1#att34">
+    <Attribute id="cls1#att1" key="true" name="oid" type="integer"/>
+    <Attribute id="cls1#att4" name="Seen" type="boolean" key="false"/>
+    <Attribute id="cls1#att3" name="Species" type="integer" key="false" derivationQuery="simpleImported::Self.as3#role5.cls4#att9"/>
+    <Attribute id="cls1#att2" name="Name" type="string" key="false"/>
+    <Attribute id="cls1#att5" name="createdAt" type="timestamp" specialBehavior="createTimestamp" key="false"/>
+    <Attribute id="cls1#att6" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" key="false"/>
+    <Attribute id="cls1#att29" name="Image_id" type="integer" key="false" derivationQuery="simpleImported::Self.as2#role3.cls3#att8"/>
+    <Attribute id="cls1#att34" name="park_id" type="integer" key="false" derivationQuery="simpleImported::Self.as16#role32.cls5#att10"/>
   </Class>
-  <db:Database id="db1" name="PxDb" type="MySQL (InnoDB)" url="jdbc:mysql://52.49.236.126:3306/freeapp58" username="freeapp58" password="RkRCRkVCMTE=" cryptedPassword="true">
-  </db:Database>
-  <Association id="as1" name="User_Animal" sourceClass="User" targetClass="cls1" db:database="db1" db:table="user_animal">
-    <AssociationRole1 id="as1#role1" name="UserToAnimal" maxCard="N">
-      <db:JoinColumn attribute="userOID" name="user_oid"/>
-    </AssociationRole1>
-    <AssociationRole2 id="as1#role2" name="AnimalToUser" maxCard="N">
-      <db:JoinColumn attribute="cls1#att1" name="animal_oid"/>
-    </AssociationRole2>
-  </Association>
+  <db:Database id="db1" name="PxDb" type="MySQL (InnoDB)" url="jdbc:mysql://52.49.236.126:3306/freeapp58" username="freeapp58" password="RkRCRkVCMTE=" cryptedPassword="true"/>
   <db:Database id="CloudDB" name="freeapp58" type="MySQL (InnoDB)" url="jdbc:mysql://52.49.236.126:3306/freeapp58" username="freeapp58" cryptedPassword="true" password="RkRCRkVCMTE="/>
+  <Class gr:x="225" gr:y="390" id="cls2" name="User_Type" duration="persistent" attributeOrder="cls2#att7 cls2#att42 cls2#att43">
+    <Attribute id="cls2#att7" key="true" name="oid" type="integer"/>
+    <Attribute id="cls2#att43" name="Description" type="string"/>
+    <Attribute id="cls2#att42" name="Name" type="string"/>
+  </Class>
+  <Class gr:x="585" gr:y="165" id="cls3" name="Image" duration="persistent" attributeOrder="cls3#att8 cls3#att20">
+    <Attribute id="cls3#att8" key="true" name="oid" type="integer"/>
+    <Attribute id="cls3#att20" name="Image" type="blob" key="false"/>
+  </Class>
+  <Association id="as2" name="User_Animal_Image" sourceClass="cls1" targetClass="cls3">
+    <AssociationRole1 id="as2#role3" name="User_AnimalToImage" maxCard="N"/>
+    <AssociationRole2 id="as2#role4" name="ImageToUser_Animal" maxCard="1"/>
+  </Association>
+  <Class gr:x="1015" gr:y="-60" id="cls4" name="Species" duration="persistent" attributeOrder="cls4#att9 cls4#att19">
+    <Attribute id="cls4#att9" key="true" name="oid" type="integer"/>
+    <Attribute id="cls4#att19" name="Name" type="string"/>
+  </Class>
+  <Class gr:x="1185" gr:y="250" id="cls5" name="Park" duration="persistent" attributeOrder="cls5#att10 cls5#att23 cls5#att24 cls5#att25 cls5#att46 cls5#att51">
+    <Attribute id="cls5#att10" key="true" name="oid" type="integer"/>
+    <Attribute id="cls5#att25" name="Description" type="string" key="false"/>
+    <Attribute id="cls5#att24" name="Link" type="string" key="false"/>
+    <Attribute id="cls5#att23" name="Name" type="string" key="false"/>
+    <Attribute id="cls5#att46" name="map_id" type="integer" derivationQuery="simpleImported::Self.as8#role15.cls7#att12" key="false"/>
+    <Attribute id="cls5#att51" name="primary_geofence" type="integer" derivationQuery="complexImported::Self.as20#role39(as Var1).cls12#att45 where Var1.cls12#att57 = 'TRUE'"/>
+  </Class>
+  <Class gr:x="855" gr:y="390" id="cls6" name="Location" duration="persistent" attributeOrder="cls6#att11 cls6#att21 cls6#att22 cls6#att39">
+    <Attribute id="cls6#att11" key="true" name="oid" type="integer"/>
+    <Attribute id="cls6#att22" name="Latitude" type="float" key="false"/>
+    <Attribute id="cls6#att21" name="Longitude" type="float" key="false"/>
+    <Attribute id="cls6#att39" name="Park_id" type="integer" derivationQuery="simpleImported::Self.as9#role18.cls5#att10"/>
+  </Class>
+  <Class gr:x="1050" gr:y="75" id="cls7" name="Map" duration="persistent" attributeOrder="cls7#att12 cls7#att26 cls7#att44">
+    <Attribute id="cls7#att12" key="true" name="oid" type="integer"/>
+    <Attribute id="cls7#att26" name="File" type="blob" key="false"/>
+    <Attribute id="cls7#att44" name="Park_id" type="integer" derivationQuery="simpleImported::Self.as8#role16.cls5#att10"/>
+  </Class>
+  <Association id="as3" name="Animal_Species" sourceClass="cls1" targetClass="cls4">
+    <AssociationRole1 id="as3#role5" name="AnimalToSpecies" maxCard="1"/>
+    <AssociationRole2 id="as3#role6" name="SpeciesToAnimal" maxCard="1"/>
+  </Association>
+  <Association id="as4" name="User_User_Type" sourceClass="User" targetClass="cls2">
+    <AssociationRole1 id="as4#role7" name="UserToUser_Type" maxCard="1"/>
+    <AssociationRole2 id="as4#role8" name="User_TypeToUser" maxCard="N"/>
+  </Association>
+  <Class gr:x="860" gr:y="180" id="cls10" name="Animal_Location" duration="persistent" attributeOrder="cls10#att16 cls10#att17 cls10#att18 cls10#att41">
+    <Attribute id="cls10#att16" name="animal_id" type="integer" derivationQuery="simpleImported::Self.as5#role9.cls1#att1" key="false"/>
+    <Attribute id="cls10#att17" name="location_id" type="integer" derivationQuery="simpleImported::Self.as6#role11.cls6#att11" key="false"/>
+    <Attribute id="cls10#att18" name="map_id" type="integer" derivationQuery="simpleImported::Self.as7#role14.cls7#att12" key="false"/>
+    <Attribute id="cls10#att41" name="oid" key="true" type="integer"/>
+  </Class>
+  <Association id="as5" name="Animal_Location_Animal" sourceClass="cls10" targetClass="cls1">
+    <AssociationRole1 id="as5#role9" name="Animal_LocationToAnimal" maxCard="1"/>
+    <AssociationRole2 id="as5#role10" name="AnimalToAnimal_Location" maxCard="1"/>
+  </Association>
+  <Association id="as6" name="Animal_Location_Location" sourceClass="cls10" targetClass="cls6">
+    <AssociationRole1 id="as6#role11" name="Animal_LocationToLocation" maxCard="1"/>
+    <AssociationRole2 id="as6#role12" name="LocationToAnimal_Location" maxCard="1"/>
+  </Association>
+  <Association id="as7" name="Map_Animal_Location" sourceClass="cls7" targetClass="cls10" gr:bendpoints="-117,-12,53,-117">
+    <AssociationRole1 id="as7#role13" name="MapToAnimal_Location" maxCard="N"/>
+    <AssociationRole2 id="as7#role14" name="Animal_LocationToMap" maxCard="1"/>
+  </Association>
+  <Association id="as8" name="Park_Map" sourceClass="cls5" targetClass="cls7" gr:bendpoints="-119,-102,46,103">
+    <AssociationRole1 id="as8#role15" name="ParkToMap" maxCard="1"/>
+    <AssociationRole2 id="as8#role16" name="MapToPark" maxCard="1"/>
+  </Association>
+  <Association id="as9" name="Park_Location" sourceClass="cls5" targetClass="cls6">
+    <AssociationRole1 id="as9#role17" name="ParkToLocation" maxCard="N"/>
+    <AssociationRole2 id="as9#role18" name="LocationToPark" maxCard="1"/>
+  </Association>
+  <Association id="as12" name="Image_Location" sourceClass="cls3" targetClass="cls6" gr:bendpoints="147,73,-133,-172">
+    <AssociationRole1 id="as12#role23" name="ImageToLocation" maxCard="1"/>
+    <AssociationRole2 id="as12#role24" name="LocationToImage" maxCard="1"/>
+  </Association>
+  <Class gr:x="445" gr:y="-40" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att35 cls11#att36 cls11#att37 cls11#att38 cls11#att40">
+    <Attribute id="cls11#att33" key="true" name="oid" type="integer"/>
+    <Attribute id="cls11#att38" name="location_id" type="integer" derivationQuery="simpleImported::Self.as18#role35.cls6#att11" key="false"/>
+    <Attribute id="cls11#att37" name="user_id" type="integer" derivationQuery="simpleImported::Self.as15#role30.userOID" key="false"/>
+    <Attribute id="cls11#att36" name="image_id" type="integer" derivationQuery="simpleImported::Self.as17#role33.cls3#att8" key="false"/>
+    <Attribute id="cls11#att35" name="animal_id" type="integer" derivationQuery="simpleImported::Self.as14#role27.cls1#att1" key="false"/>
+    <Attribute id="cls11#att40" name="comment" type="string"/>
+  </Class>
+  <Association id="as14" name="Animal_Sighting_Animal" sourceClass="cls11" targetClass="cls1">
+    <AssociationRole1 id="as14#role27" name="Animal_SightingToAnimal" maxCard="1"/>
+    <AssociationRole2 id="as14#role28" name="AnimalToAnimal_Sighting" maxCard="1"/>
+  </Association>
+  <Association id="as15" name="User_Animal_Sighting" sourceClass="User" targetClass="cls11">
+    <AssociationRole1 id="as15#role29" name="UserToAnimal_Sighting" maxCard="N"/>
+    <AssociationRole2 id="as15#role30" name="Animal_SightingToUser" maxCard="1"/>
+  </Association>
+  <Association id="as16" name="Park_Animal" sourceClass="cls5" targetClass="cls1" gr:bendpoints="-2,-267,398,13">
+    <AssociationRole1 id="as16#role31" name="ParkToAnimal" maxCard="N"/>
+    <AssociationRole2 id="as16#role32" name="AnimalToPark" maxCard="1"/>
+  </Association>
+  <Association id="as17" name="Animal_Sighting_Image" sourceClass="cls11" targetClass="cls3">
+    <AssociationRole1 id="as17#role33" name="Animal_SightingToImage" maxCard="1"/>
+    <AssociationRole2 id="as17#role34" name="ImageToAnimal_Sighting" maxCard="1"/>
+  </Association>
+  <Association id="as18" name="Animal_Sighting_Location" sourceClass="cls11" targetClass="cls6" gr:bendpoints="13,293,-392,-117">
+    <AssociationRole1 id="as18#role35" name="Animal_SightingToLocation" maxCard="1"/>
+    <AssociationRole2 id="as18#role36" name="LocationToAnimal_Sighting" maxCard="1"/>
+  </Association>
+  <Class gr:x="1155" gr:y="485" id="cls12" name="Geofence" duration="persistent" attributeOrder="cls12#att45 cls12#att48 cls12#att49 cls12#att50 cls12#att57">
+    <Attribute id="cls12#att45" key="true" name="oid" type="integer"/>
+    <Attribute id="cls12#att49" name="Radius" type="float" key="false"/>
+    <Attribute id="cls12#att48" name="Center_location" type="integer" derivationQuery="simpleImported::Self.as19#role37.cls6#att11" key="false"/>
+    <Attribute id="cls12#att50" name="park_id" type="integer" derivationQuery="simpleImported::Self.as20#role40.cls5#att10" key="false"/>
+    <Attribute id="cls12#att57" name="primary" type="boolean"/>
+  </Class>
+  <Association id="as19" name="Geofence_Location" sourceClass="cls12" targetClass="cls6">
+    <AssociationRole1 id="as19#role37" name="GeofenceToLocation" maxCard="1"/>
+    <AssociationRole2 id="as19#role38" name="LocationToGeofence" maxCard="1"/>
+  </Association>
+  <Association id="as20" name="Park_Geofence" sourceClass="cls5" targetClass="cls12">
+    <AssociationRole1 id="as20#role39" name="ParkToGeofence" maxCard="N"/>
+    <AssociationRole2 id="as20#role40" name="GeofenceToPark" maxCard="1"/>
+  </Association>
+  <Class gr:x="330" gr:y="200" id="cls13" name="blog_post" duration="persistent" attributeOrder="cls13#att52 cls13#att53 cls13#att54 cls13#att55 cls13#att56">
+    <Attribute id="cls13#att52" key="true" name="oid" type="integer"/>
+    <Attribute id="cls13#att56" name="user_id" type="integer" derivationQuery="simpleImported::Self.as21#role42.userOID"/>
+    <Attribute id="cls13#att55" name="date_created" type="timestamp"/>
+    <Attribute id="cls13#att54" name="Body" type="string"/>
+    <Attribute id="cls13#att53" name="Title" type="string"/>
+  </Class>
+  <Association id="as21" name="User_blog_post" sourceClass="User" targetClass="cls13">
+    <AssociationRole1 id="as21#role41" name="UserToblog_post" maxCard="N"/>
+    <AssociationRole2 id="as21#role42" name="blog_postToUser" maxCard="1"/>
+  </Association>
 </DomainModel>
