@@ -10,10 +10,34 @@
   <Table schema="" refreshed="true" type="TABLE" name="animal" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
     <Column sqlTypeId="-7" indexed="unknown" notNull="false" autoIncrement="false" type="BIT" size="1" name="seen" decimalDigits="0" primaryKey="false"/>
-    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="species" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="name" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="park_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_location_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="animal_location" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="map_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="animal_sighting" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="comment" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="blog_post" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="date_created" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="body" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="title" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="device" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
@@ -23,11 +47,64 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="platform" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="platform_version" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="browser" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="geofence" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="radius" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="park_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="image" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="image" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="location" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="latitude" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="longitude" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="image_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="geofence_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_location_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="park_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="map" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="file" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="park_oid" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="park" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="description" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="link" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="name" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="role" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="rolename" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="species" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="name" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="user" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
@@ -37,13 +114,19 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="token" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="token_expiration_date" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="secretkey" decimalDigits="0" primaryKey="false"/>
-  </Table>
-  <Table schema="" refreshed="true" type="TABLE" name="user_animal" ignoreIndexes="false">
-    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="true"/>
-    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_type_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="user_role" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="true"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="role_oid" decimalDigits="0" primaryKey="true"/>
+  </Table>
+  <Table schema="" refreshed="true" type="TABLE" name="user_type" ignoreIndexes="false">
+    <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="description" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="name" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
   </Table>
 </DBMetaData>
