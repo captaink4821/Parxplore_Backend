@@ -308,18 +308,17 @@
       <db:JoinColumn attribute="cls6#att11" name="oid"/>
     </AssociationRole2>
   </Association>
-  <Class gr:x="420" gr:y="-70" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att87 cls11#att36 cls11#att37 cls11#att38 cls11#att40 cls11#att64 cls11#att65 cls11#att89 cls11#att90 cls11#att91" db:database="db1" db:table="animal_sighting">
+  <Class gr:x="420" gr:y="-70" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att87 cls11#att37 cls11#att40 cls11#att64 cls11#att65 cls11#att89 cls11#att90 cls11#att91 cls11#att13" db:database="db1" db:table="animal_sighting">
     <Attribute id="cls11#att33" key="true" name="oid" type="integer" db:column="oid"/>
-    <Attribute id="cls11#att38" name="location_id" type="integer" derivationQuery="simpleImported::Self.as18#role35.cls6#att11" key="false"/>
     <Attribute id="cls11#att37" name="user_id" type="integer" derivationQuery="simpleImported::Self.as15#role30.userOID" key="false"/>
-    <Attribute id="cls11#att36" name="image_id" type="integer" derivationQuery="simpleImported::Self.as17#role33.cls3#att8" key="false"/>
     <Attribute id="cls11#att40" name="comment" type="string" key="false" db:column="comment"/>
     <Attribute id="cls11#att64" name="createdAt" type="timestamp" specialBehavior="createTimestamp" key="false" db:column="createdat"/>
     <Attribute id="cls11#att65" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" key="false" db:column="updatedat"/>
     <Attribute id="cls11#att87" name="animal_id" type="integer" derivationQuery="simpleImported::Self.as14#role27.cls1#att1" key="false"/>
-    <Attribute id="cls11#att91" name="address" type="string" db:column="address"/>
-    <Attribute id="cls11#att90" name="latitude" type="float" db:column="latitude"/>
-    <Attribute id="cls11#att89" name="longitude" type="float" db:column="longitude"/>
+    <Attribute id="cls11#att91" name="address" type="string" db:column="address" key="false"/>
+    <Attribute id="cls11#att90" name="latitude" type="float" db:column="latitude" key="false"/>
+    <Attribute id="cls11#att89" name="longitude" type="float" db:column="longitude" key="false"/>
+    <Attribute id="cls11#att13" name="image" type="blob" contentType="image" key="false" db:column="image"/>
   </Class>
   <Association id="as14" name="Animal_Sighting_Animal" sourceClass="cls11" targetClass="cls1" db:database="db1" db:table="animal_sighting">
     <AssociationRole1 id="as14#role27" name="Animal_SightingToAnimal" maxCard="1">
@@ -343,22 +342,6 @@
     </AssociationRole1>
     <AssociationRole2 id="as16#role32" name="AnimalToPark" maxCard="1">
       <db:JoinColumn attribute="cls1#att1" name="oid"/>
-    </AssociationRole2>
-  </Association>
-  <Association id="as17" name="Animal_Sighting_Image" sourceClass="cls11" targetClass="cls3" db:database="db1" db:table="image">
-    <AssociationRole1 id="as17#role33" name="Animal_SightingToImage" maxCard="1">
-      <db:JoinColumn attribute="cls11#att33" name="animal_sighting_oid"/>
-    </AssociationRole1>
-    <AssociationRole2 id="as17#role34" name="ImageToAnimal_Sighting" maxCard="1">
-      <db:JoinColumn attribute="cls3#att8" name="oid"/>
-    </AssociationRole2>
-  </Association>
-  <Association id="as18" name="Animal_Sighting_Location" sourceClass="cls11" targetClass="cls6" gr:bendpoints="30,347,-405,-73" db:database="db1" db:table="location">
-    <AssociationRole1 id="as18#role35" name="Animal_SightingToLocation" maxCard="1">
-      <db:JoinColumn attribute="cls11#att33" name="animal_sighting_oid"/>
-    </AssociationRole1>
-    <AssociationRole2 id="as18#role36" name="LocationToAnimal_Sighting" maxCard="1">
-      <db:JoinColumn attribute="cls6#att11" name="oid"/>
     </AssociationRole2>
   </Association>
   <Class gr:x="1155" gr:y="485" id="cls12" name="Geofence" duration="persistent" attributeOrder="cls12#att45 cls12#att48 cls12#att49 cls12#att50 cls12#att78 cls12#att79" db:database="db1" db:table="geofence">
