@@ -1,0 +1,34 @@
+-- Image_Location [as12]
+alter table `location`  drop column  `image_oid`;
+-- User_Role [User2Role_Role2User]
+drop table `user_role`;
+-- User_Device [User2Device_Device2User]
+alter table `device`  drop column  `user_oid`;
+-- Map [cls7]
+drop table `map`;
+-- Location [cls6]
+drop table `location`;
+-- Park [cls5]
+drop table `park`;
+-- Species [cls4]
+drop table `species`;
+-- Image [cls3]
+drop table `image`;
+-- User_Type [cls2]
+drop table `user_type`;
+-- blog_post [cls13]
+drop table `blog_post`;
+-- Geofence [cls12]
+drop table `geofence`;
+-- Animal_Sighting [cls11]
+drop table `animal_sighting`;
+-- Animal_Location [cls10]
+drop table `animal_location`;
+-- Animal [cls1]
+drop table `animal`;
+-- User [User]
+drop table `user`;
+-- Role [Role]
+drop table `role`;
+-- Device [Device]
+drop table `device`;

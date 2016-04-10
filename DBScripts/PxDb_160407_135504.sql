@@ -178,7 +178,7 @@ alter table `location`  add column  `image_oid`  integer;
 
 
 -- Animal_Sighting_Animal [as14]
-alter table `animal_sighting`  add column  `animal_oid`  integer;
+alter table `animal`  add column  `animal_sighting_oid`  integer;
 
 
 -- User_Animal_Sighting [as15]

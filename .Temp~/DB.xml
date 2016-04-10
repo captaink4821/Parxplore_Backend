@@ -13,8 +13,8 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="name" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
-    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="park_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="species_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_location_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="animal_location" ignoreIndexes="false">
@@ -28,6 +28,10 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="comment" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="address" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="latitude" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="longitude" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="blog_post" ignoreIndexes="false">
@@ -63,6 +67,9 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="image" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="address" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="latitude" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="longitude" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
@@ -72,6 +79,7 @@
     <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="longitude" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="address" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="image_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="geofence_oid" decimalDigits="0" primaryKey="false"/>
@@ -104,7 +112,6 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="name" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
-    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="user" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>

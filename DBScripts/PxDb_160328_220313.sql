@@ -64,9 +64,6 @@ create table `animal_sighting` (
    `comment`  varchar(255),
    `createdat`  datetime,
    `updatedat`  datetime,
-   `address`  varchar(255),
-   `latitude`  double precision,
-   `longitude`  double precision,
   primary key (`oid`)
 ) ENGINE=InnoDB;
 
@@ -110,9 +107,6 @@ create table `image` (
    `image`  varchar(255),
    `createdat`  datetime,
    `updatedat`  datetime,
-   `address`  varchar(255),
-   `latitude`  double precision,
-   `longitude`  double precision,
   primary key (`oid`)
 ) ENGINE=InnoDB;
 
@@ -146,7 +140,6 @@ create table `location` (
    `longitude`  double precision,
    `createdat`  datetime,
    `updatedat`  datetime,
-   `address`  varchar(255),
   primary key (`oid`)
 ) ENGINE=InnoDB;
 

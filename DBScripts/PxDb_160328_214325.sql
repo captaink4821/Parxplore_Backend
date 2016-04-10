@@ -64,9 +64,6 @@ create table `animal_sighting` (
    `comment`  varchar(255),
    `createdat`  datetime,
    `updatedat`  datetime,
-   `address`  varchar(255),
-   `latitude`  double precision,
-   `longitude`  double precision,
   primary key (`oid`)
 ) ENGINE=InnoDB;
 
@@ -110,9 +107,6 @@ create table `image` (
    `image`  varchar(255),
    `createdat`  datetime,
    `updatedat`  datetime,
-   `address`  varchar(255),
-   `latitude`  double precision,
-   `longitude`  double precision,
   primary key (`oid`)
 ) ENGINE=InnoDB;
 
@@ -146,7 +140,6 @@ create table `location` (
    `longitude`  double precision,
    `createdat`  datetime,
    `updatedat`  datetime,
-   `address`  varchar(255),
   primary key (`oid`)
 ) ENGINE=InnoDB;
 
@@ -178,7 +171,7 @@ alter table `location`  add column  `image_oid`  integer;
 
 
 -- Animal_Sighting_Animal [as14]
-alter table `animal_sighting`  add column  `animal_oid`  integer;
+alter table `animal_sighting`  add column  `oid`  integer;
 
 
 -- User_Animal_Sighting [as15]
@@ -214,7 +207,7 @@ alter table `blog_post`  add column  `user_oid`  integer;
 
 
 -- Animal_Species [as3]
-alter table `animal`  add column  `species_oid`  integer;
+alter table `animal`  add column  `oid`  integer;
 
 
 -- User_User_Type [as4]
