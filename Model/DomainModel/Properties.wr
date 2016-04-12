@@ -12,7 +12,7 @@
     <Attribute id="User#att15" name="createdAt" type="timestamp" specialBehavior="createTimestamp" db:column="createdat"/>
     <Attribute id="User#att27" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" db:column="updatedat"/>
   </Class>
-  <Class id="Role" name="Role" duration="persistent" gr:x="10" gr:y="380" gr:hideAttributes="false" attributeOrder="roleOID roleName Role#att66 Role#att67" db:database="db1" db:table="role">
+  <Class id="Role" name="Role" duration="persistent" gr:x="0" gr:y="515" gr:hideAttributes="false" attributeOrder="roleOID roleName Role#att66 Role#att67" db:database="db1" db:table="role">
     <Attribute name="oid" id="roleOID" type="integer" key="true" db:column="oid"/>
     <Attribute name="roleName" id="roleName" type="string" db:column="rolename"/>
     <Comment xml:space="preserve">A role represents an application role managed by the backend application. This class is automatically filled in by the backend application with all Roles elements modeled in the project.</Comment>
@@ -78,14 +78,6 @@
         <ServiceMethod method="create"/>
         <ServiceMethod method="update"/>
         <ServiceMethod method="delete"/>
-      </ServiceRole>
-    </ServiceClass>
-    <ServiceClass class="cls4">
-      <ServiceRole>
-        <ServiceMethod method="create"/>
-        <ServiceMethod method="read"/>
-        <ServiceMethod method="delete"/>
-        <ServiceMethod method="update"/>
       </ServiceRole>
     </ServiceClass>
     <ServiceClass class="cls5">
@@ -165,20 +157,20 @@
     <UserServiceOperation type="register"/>
     <UserServiceOperation type="login"/>
   </UserServices>
-  <Class gr:x="775" gr:y="-60" id="cls1" name="Animal" duration="persistent" attributeOrder="cls1#att1 cls1#att2 cls1#att3 cls1#att4 cls1#att5 cls1#att6 cls1#att34" db:database="db1" db:table="animal">
+  <Class gr:x="775" gr:y="-60" id="cls1" name="Animal" duration="persistent" attributeOrder="cls1#att1 cls1#att2 cls1#att4 cls1#att5 cls1#att6 cls1#att34 cls1#att14" db:database="db1" db:table="animal">
     <Attribute id="cls1#att1" key="true" name="oid" type="integer" db:column="oid"/>
     <Attribute id="cls1#att4" name="Seen" type="boolean" key="false" db:column="seen"/>
-    <Attribute id="cls1#att3" name="Species" type="integer" key="false" derivationQuery="simpleImported::Self.as3#role5.cls4#att9"/>
     <Attribute id="cls1#att2" name="Name" type="string" key="false" db:column="name"/>
     <Attribute id="cls1#att5" name="createdAt" type="timestamp" specialBehavior="createTimestamp" key="false" db:column="createdat"/>
     <Attribute id="cls1#att6" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" key="false" db:column="updatedat"/>
     <Attribute id="cls1#att34" name="park_id" type="integer" key="false" derivationQuery="simpleImported::Self.as16#role32.cls5#att10"/>
+    <Attribute id="cls1#att14" name="species" type="string" db:column="species"/>
   </Class>
   <db:Database id="db1" name="PxDb" type="MySQL (InnoDB)" url="jdbc:mysql://52.49.236.126:3306/freeapp58" username="freeapp58" password="RkRCRkVCMTE=" cryptedPassword="true">
   </db:Database>
   <db:Database id="CloudDB" name="freeapp58" type="MySQL (InnoDB)" url="jdbc:mysql://52.49.236.126:3306/freeapp58" username="freeapp58" cryptedPassword="true" password="RkRCRkVCMTE=">
   </db:Database>
-  <Class gr:x="225" gr:y="390" id="cls2" name="User_Type" duration="persistent" attributeOrder="cls2#att7 cls2#att42 cls2#att43 cls2#att60 cls2#att61" db:database="db1" db:table="user_type">
+  <Class gr:x="275" gr:y="445" id="cls2" name="User_Type" duration="persistent" attributeOrder="cls2#att7 cls2#att42 cls2#att43 cls2#att60 cls2#att61" db:database="db1" db:table="user_type">
     <Attribute id="cls2#att7" key="true" name="oid" type="integer" db:column="oid"/>
     <Attribute id="cls2#att43" name="Description" type="string" db:column="description"/>
     <Attribute id="cls2#att42" name="Name" type="string" db:column="name"/>
@@ -204,12 +196,6 @@
       <db:JoinColumn attribute="cls3#att8" name="oid"/>
     </AssociationRole2>
   </Association>
-  <Class gr:x="1015" gr:y="-60" id="cls4" name="Species" duration="persistent" attributeOrder="cls4#att9 cls4#att19 cls4#att72 cls4#att73" db:database="db1" db:table="species">
-    <Attribute id="cls4#att9" key="true" name="oid" type="integer" db:column="oid"/>
-    <Attribute id="cls4#att19" name="Name" type="string" db:column="name"/>
-    <Attribute id="cls4#att72" name="createdAt" type="timestamp" specialBehavior="createTimestamp" db:column="createdat"/>
-    <Attribute id="cls4#att73" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" db:column="updatedat"/>
-  </Class>
   <Class gr:x="1185" gr:y="250" id="cls5" name="Park" duration="persistent" attributeOrder="cls5#att10 cls5#att23 cls5#att24 cls5#att25 cls5#att46 cls5#att70 cls5#att71 cls5#att84" db:database="db1" db:table="park">
     <Attribute id="cls5#att10" key="true" name="oid" type="integer" db:column="oid"/>
     <Attribute id="cls5#att25" name="Description" type="string" key="false" db:column="description"/>
@@ -236,14 +222,6 @@
     <Attribute id="cls7#att58" name="createdAt" type="timestamp" specialBehavior="createTimestamp" db:column="createdat"/>
     <Attribute id="cls7#att59" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" db:column="updatedat"/>
   </Class>
-  <Association id="as3" name="Animal_Species" sourceClass="cls1" targetClass="cls4" db:database="db1" db:table="animal">
-    <AssociationRole1 id="as3#role5" name="AnimalToSpecies" maxCard="1">
-      <db:JoinColumn attribute="cls1#att1" name="oid"/>
-    </AssociationRole1>
-    <AssociationRole2 id="as3#role6" name="SpeciesToAnimal" maxCard="N">
-      <db:JoinColumn attribute="cls4#att9" name="species_oid"/>
-    </AssociationRole2>
-  </Association>
   <Association id="as4" name="User_User_Type" sourceClass="User" targetClass="cls2" db:database="db1" db:table="user">
     <AssociationRole1 id="as4#role7" name="UserToUser_Type" maxCard="1">
       <db:JoinColumn attribute="userOID" name="oid"/>
@@ -315,9 +293,9 @@
     <Attribute id="cls11#att64" name="createdAt" type="timestamp" specialBehavior="createTimestamp" key="false" db:column="createdat"/>
     <Attribute id="cls11#att65" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" key="false" db:column="updatedat"/>
     <Attribute id="cls11#att87" name="animal_id" type="integer" derivationQuery="simpleImported::Self.as14#role27.cls1#att1" key="false"/>
-    <Attribute id="cls11#att91" name="address" type="string" db:column="address" key="false"/>
-    <Attribute id="cls11#att90" name="latitude" type="float" db:column="latitude" key="false"/>
-    <Attribute id="cls11#att89" name="longitude" type="float" db:column="longitude" key="false"/>
+    <Attribute id="cls11#att91" name="address" type="string" key="false" db:column="address"/>
+    <Attribute id="cls11#att90" name="latitude" type="float" key="false" db:column="latitude"/>
+    <Attribute id="cls11#att89" name="longitude" type="float" key="false" db:column="longitude"/>
     <Attribute id="cls11#att13" name="image" type="blob" contentType="image" key="false" db:column="image"/>
   </Class>
   <Association id="as14" name="Animal_Sighting_Animal" sourceClass="cls11" targetClass="cls1" db:database="db1" db:table="animal_sighting">
