@@ -5,14 +5,14 @@
     <Property name="ajaxActivated">true</Property>
     <Property name="applicationServer">Tomcat</Property>
     <Property name="cloudDeploy">true</Property>
-    <Property name="dbConfigPath">C:\Users\admin\AppData\Local\Temp\WRDBConfig5252140982056743887.xml</Property>
+    <Property name="dbConfigPath">C:\Users\admin\AppData\Local\Temp\WRDBConfig2207993436080591030.xml</Property>
     <Property name="defaultEncoding"></Property>
     <Property name="deployCorePluginDir">C:\WebRatio\WebRatio Mobile Platform Community 8.7.4\WebRatio\configuration\org.eclipse.osgi\131\0\.cp</Property>
     <Property name="derbySystemHome">${app.dir}/WEB-INF/derby</Property>
     <Property name="enterpriseProjectDir"></Property>
-    <Property name="eventSocketPort">62407</Property>
+    <Property name="eventSocketPort">63394</Property>
     <Property name="excludedProjects" type="list"></Property>
-    <Property name="generationTime">201604131112</Property>
+    <Property name="generationTime">201604151633</Property>
     <Property name="i18nBundleKeysFile" type="file"></Property>
     <Property name="i18nExtraBundleFile" type="file"></Property>
     <Property name="lockDir">C:\WebRatio\WebRatio Mobile Platform Community 8.7.4\workspace\Parxplore\Parxplore_Backend\.Temp~</Property>
@@ -22,7 +22,7 @@
     <Property name="productionMode">true</Property>
     <Property name="projectDir">C:\WebRatio\WebRatio Mobile Platform Community 8.7.4\workspace\Parxplore\Parxplore_Backend</Property>
     <Property name="projectName">Parxplore_Backend</Property>
-    <Property name="projectPath">C:\Users\admin\AppData\Local\Temp\Project4568819087148380487.wr</Property>
+    <Property name="projectPath">C:\Users\admin\AppData\Local\Temp\Project7284004532124257668.wr</Property>
     <Property name="projectType">WEBPROJECT</Property>
     <Property name="rootModuleName"></Property>
     <Property name="uiPluginDir">C:\WebRatio\WebRatio Mobile Platform Community 8.7.4\WebRatio\plugins\com.webratio.ide.ui_8.7.4.201602272125</Property>

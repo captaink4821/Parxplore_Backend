@@ -286,13 +286,13 @@
       <db:JoinColumn attribute="cls6#att11" name="oid"/>
     </AssociationRole2>
   </Association>
-  <Class gr:x="420" gr:y="-70" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att87 cls11#att37 cls11#att40 cls11#att64 cls11#att65 cls11#att89 cls11#att90 cls11#att91 cls11#att13" db:database="db1" db:table="animal_sighting">
+  <Class gr:x="540" gr:y="-100" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att87 cls11#att37 cls11#att40 cls11#att64 cls11#att65 cls11#att89 cls11#att90 cls11#att91 cls11#att13" db:database="db1" db:table="animal_sighting">
     <Attribute id="cls11#att33" key="true" name="oid" type="integer" db:column="oid"/>
-    <Attribute id="cls11#att37" name="user_id" type="integer" derivationQuery="simpleImported::Self.as15#role30.userOID" key="false"/>
+    <Attribute id="cls11#att37" name="user_id" type="integer" key="false" db:column="user_id"/>
     <Attribute id="cls11#att40" name="comment" type="string" key="false" db:column="comment"/>
     <Attribute id="cls11#att64" name="createdAt" type="timestamp" specialBehavior="createTimestamp" key="false" db:column="createdat"/>
     <Attribute id="cls11#att65" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" key="false" db:column="updatedat"/>
-    <Attribute id="cls11#att87" name="animal_id" type="integer" derivationQuery="simpleImported::Self.as14#role27.cls1#att1" key="false"/>
+    <Attribute id="cls11#att87" name="animal_id" type="integer" key="false" db:column="animal_id"/>
     <Attribute id="cls11#att91" name="address" type="string" key="false" db:column="address"/>
     <Attribute id="cls11#att90" name="latitude" type="float" key="false" db:column="latitude"/>
     <Attribute id="cls11#att89" name="longitude" type="float" key="false" db:column="longitude"/>

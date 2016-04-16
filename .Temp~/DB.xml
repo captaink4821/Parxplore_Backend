@@ -25,9 +25,11 @@
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="animal_sighting" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_id" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="comment" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_id" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="address" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="latitude" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="8" indexed="unknown" notNull="false" autoIncrement="false" type="DOUBLE" size="22" name="longitude" decimalDigits="0" primaryKey="false"/>
