@@ -286,7 +286,7 @@
       <db:JoinColumn attribute="cls6#att11" name="oid"/>
     </AssociationRole2>
   </Association>
-  <Class gr:x="540" gr:y="-100" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att87 cls11#att37 cls11#att40 cls11#att64 cls11#att65 cls11#att89 cls11#att90 cls11#att91 cls11#att13" db:database="db1" db:table="animal_sighting">
+  <Class gr:x="540" gr:y="-100" id="cls11" name="Animal_Sighting" duration="persistent" attributeOrder="cls11#att33 cls11#att87 cls11#att37 cls11#att40 cls11#att64 cls11#att65 cls11#att89 cls11#att90 cls11#att91 cls11#att13 cls11#att3 cls11#att9" db:database="db1" db:table="animal_sighting">
     <Attribute id="cls11#att33" key="true" name="oid" type="integer" db:column="oid"/>
     <Attribute id="cls11#att37" name="user_id" type="integer" key="false" db:column="user_id"/>
     <Attribute id="cls11#att40" name="comment" type="string" key="false" db:column="comment"/>
@@ -296,7 +296,9 @@
     <Attribute id="cls11#att91" name="address" type="string" key="false" db:column="address"/>
     <Attribute id="cls11#att90" name="latitude" type="float" key="false" db:column="latitude"/>
     <Attribute id="cls11#att89" name="longitude" type="float" key="false" db:column="longitude"/>
-    <Attribute id="cls11#att13" name="image" type="blob" contentType="image" key="false" db:column="image"/>
+    <Attribute id="cls11#att13" name="image" type="blob" key="false" db:column="image"/>
+    <Attribute id="cls11#att3" name="animalName" type="string" key="false" db:column="animalname"/>
+    <Attribute id="cls11#att9" name="title" type="string" db:column="title"/>
   </Class>
   <Association id="as14" name="Animal_Sighting_Animal" sourceClass="cls11" targetClass="cls1" db:database="db1" db:table="animal_sighting">
     <AssociationRole1 id="as14#role27" name="Animal_SightingToAnimal" maxCard="1">
@@ -346,20 +348,29 @@
       <db:JoinColumn attribute="cls12#att45" name="oid"/>
     </AssociationRole2>
   </Association>
-  <Class gr:x="330" gr:y="200" id="cls13" name="blog_post" duration="persistent" attributeOrder="cls13#att52 cls13#att53 cls13#att54 cls13#att55 cls13#att56 cls13#att76 cls13#att77" db:database="db1" db:table="blog_post">
+  <Class gr:x="330" gr:y="200" id="cls13" name="blog_post" duration="persistent" attributeOrder="cls13#att52 cls13#att53 cls13#att54 cls13#att55 cls13#att56 cls13#att76 cls13#att77 cls13#att19" db:database="db1" db:table="blog_post">
     <Attribute id="cls13#att52" key="true" name="oid" type="integer" db:column="oid"/>
-    <Attribute id="cls13#att56" name="user_id" type="integer" derivationQuery="simpleImported::Self.as21#role42.userOID"/>
-    <Attribute id="cls13#att55" name="date_created" type="timestamp" db:column="date_created"/>
-    <Attribute id="cls13#att54" name="Body" type="string" db:column="body"/>
-    <Attribute id="cls13#att53" name="Title" type="string" db:column="title"/>
-    <Attribute id="cls13#att76" name="createdAt" type="timestamp" specialBehavior="createTimestamp" db:column="createdat"/>
-    <Attribute id="cls13#att77" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" db:column="updatedat"/>
+    <Attribute id="cls13#att56" name="user_id" type="integer" key="false" db:column="user_id"/>
+    <Attribute id="cls13#att55" name="date_created" type="timestamp" db:column="date_created" key="false"/>
+    <Attribute id="cls13#att54" name="Body" type="string" db:column="body" key="false"/>
+    <Attribute id="cls13#att53" name="Title" type="string" db:column="title" key="false"/>
+    <Attribute id="cls13#att76" name="createdAt" type="timestamp" specialBehavior="createTimestamp" db:column="createdat" key="false"/>
+    <Attribute id="cls13#att77" name="updatedAt" type="timestamp" specialBehavior="updateTimestamp" db:column="updatedat" key="false"/>
+    <Attribute id="cls13#att19" name="animal_sighting_id" type="string" db:column="animal_sighting_id"/>
   </Class>
   <Association id="as21" name="User_blog_post" sourceClass="User" targetClass="cls13" db:database="db1" db:table="blog_post">
     <AssociationRole1 id="as21#role41" name="UserToblog_post" maxCard="N">
       <db:JoinColumn attribute="userOID" name="user_oid"/>
     </AssociationRole1>
     <AssociationRole2 id="as21#role42" name="blog_postToUser" maxCard="1">
+      <db:JoinColumn attribute="cls13#att52" name="oid"/>
+    </AssociationRole2>
+  </Association>
+  <Association id="as1" name="Animal_Sighting_blog_post" sourceClass="cls11" targetClass="cls13" db:database="db1" db:table="blog_post">
+    <AssociationRole1 id="as1#role1" name="Animal_SightingToblog_post" maxCard="N">
+      <db:JoinColumn attribute="cls11#att33" name="animal_sighting_oid"/>
+    </AssociationRole1>
+    <AssociationRole2 id="as1#role2" name="blog_postToAnimal_Sighting" maxCard="1">
       <db:JoinColumn attribute="cls13#att52" name="oid"/>
     </AssociationRole2>
   </Association>

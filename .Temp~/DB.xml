@@ -36,6 +36,8 @@
     <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="image" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_oid" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="animalname" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="title" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="blog_post" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
@@ -45,6 +47,9 @@
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="createdat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="93" indexed="unknown" notNull="false" autoIncrement="false" type="DATETIME" size="19" name="updatedat" decimalDigits="0" primaryKey="false"/>
     <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_oid" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="12" indexed="unknown" notNull="false" autoIncrement="false" type="VARCHAR" size="255" name="animal_sighting_id" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="user_id" decimalDigits="0" primaryKey="false"/>
+    <Column sqlTypeId="4" indexed="unknown" notNull="false" autoIncrement="false" type="INT" size="10" name="animal_sighting_oid" decimalDigits="0" primaryKey="false"/>
   </Table>
   <Table schema="" refreshed="true" type="TABLE" name="device" ignoreIndexes="false">
     <Column sqlTypeId="4" indexed="unknown" notNull="true" autoIncrement="false" type="INT" size="10" name="oid" decimalDigits="0" primaryKey="true"/>
